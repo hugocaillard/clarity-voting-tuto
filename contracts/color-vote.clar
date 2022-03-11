@@ -20,5 +20,30 @@
 
 (define-read-only (get-nb-of-voters) (var-get nb-of-voters))
 
+(define-read-only (get-color (id uint))
+  (ok {
+    id: id,
+    value: (unwrap! (element-at COLORS id) ERR_NOT_FOUND),
+    score: (unwrap! (element-at (var-get scores) id) ERR_NOT_FOUND),
+  })
+)
+
+(define-read-only (get-colors) (map get-color (list u0 u1 u2 u3)))
+
+(define-private (find-best
+  (next uint)
+  (current (optional { id: uint, score: uint }))
+)
+  (let ((next-score (unwrap-panic (element-at (var-get scores) next))))
+    (if (> next-score (default-to u0 (get score current)))
+      (some { id: next, score: next-score })
+      current
+    )
+  )
+)
+
+(define-read-only (get-elected) (fold find-best (list u0 u1 u2 u3) none))
+
 (define-constant ERR_BAD_REQUEST (err u400))
+(define-constant ERR_NOT_FOUND (err u404))
 (define-constant ERR_FORBIDDEN (err u403))
