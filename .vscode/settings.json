@@ -3,6 +3,10 @@
   "deno.lint": true,
   "eslint.enable": false,
 
+  "prettier.semi": false,
+  "prettier.singleQuote": true,
+  "prettier.trailingComma": "all",
+
   "[clarity]": {
     "editor.rulers": [80],
 
