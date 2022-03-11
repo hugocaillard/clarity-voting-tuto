@@ -1,0 +1,4 @@
+{
+  "recommendations": ["denoland.vscode-deno", "hirosystems.clarity-lsp"],
+  "unwantedRecommendations": []
+}

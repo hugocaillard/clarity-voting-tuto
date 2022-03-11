@@ -1,0 +1,4 @@
+.DS_Store
+settings/Mainnet.toml
+settings/Testnet.toml
+history.txt
