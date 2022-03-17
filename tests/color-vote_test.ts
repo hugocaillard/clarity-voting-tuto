@@ -149,3 +149,135 @@ Clarinet.test({
     elected.score.expectUint(4)
   },
 })
+
+Clarinet.test({
+  name: '`unvote`- can be called after `vote`',
+  fn(chain: Chain, accounts: Map<string, Account>) {
+    const { address } = accounts.get('wallet_1')!
+    const { receipts } = chain.mineBlock([
+      Tx.contractCall('color-vote', 'vote', [2, 3, 4, 5].map(uint), address),
+      Tx.contractCall('color-vote', 'unvote', [], address),
+    ])
+
+    receipts[0].result.expectOk().expectBool(true)
+    receipts[1].result.expectOk().expectBool(true)
+  },
+})
+
+Clarinet.test({
+  name: '`unvote`- throws a forbidden error if the person did not vote',
+  fn(chain: Chain, accounts: Map<string, Account>) {
+    const { address } = accounts.get('wallet_1')!
+    const { receipts } = chain.mineBlock([
+      Tx.contractCall('color-vote', 'unvote', [], address),
+    ])
+
+    receipts[0].result.expectErr().expectUint(403)
+  },
+})
+
+Clarinet.test({
+  name: '`unvote`- allows user to `vote` again',
+  fn(chain: Chain, accounts: Map<string, Account>) {
+    const { address } = accounts.get('wallet_1')!
+    const { receipts } = chain.mineBlock([
+      Tx.contractCall('color-vote', 'vote', [0, 4, 0, 0].map(uint), address),
+      Tx.contractCall('color-vote', 'unvote', [], address),
+      Tx.contractCall('color-vote', 'vote', [4, 0, 0, 0].map(uint), address),
+      Tx.contractCall('color-vote', 'get-elected', [], address),
+    ])
+
+    receipts[2].result.expectOk()
+    const winner = receipts[3].result.expectSome().expectTuple() as CVElected
+    winner.id.expectUint(0)
+  },
+})
+
+Clarinet.test({
+  name: '`unvote` - decrements the nb-of-votes',
+  fn(chain: Chain, accounts: Map<string, Account>) {
+    const { address } = accounts.get('wallet_1')!
+    const { receipts } = chain.mineBlock([
+      Tx.contractCall('color-vote', 'vote', [2, 3, 4, 5].map(uint), address),
+      Tx.contractCall('color-vote', 'unvote', [], address),
+      Tx.contractCall('color-vote', 'get-nb-of-voters', [], address),
+    ])
+
+    receipts[2].result.expectUint(0)
+  },
+})
+
+Clarinet.test({
+  name: '`unvote`- substract the previous vote values from the total scores',
+  fn(chain: Chain, accounts: Map<string, Account>) {
+    const { address } = accounts.get('wallet_1')!
+    const { receipts } = chain.mineBlock([
+      Tx.contractCall('color-vote', 'vote', [2, 3, 4, 5].map(uint), address),
+      Tx.contractCall('color-vote', 'unvote', [], address),
+      Tx.contractCall('color-vote', 'get-colors', [], address),
+    ])
+
+    receipts[2].result.expectList().forEach((c) => {
+      const { score } = c.expectOk().expectTuple() as CVColor
+      score.expectUint(0)
+    })
+  },
+})
+
+Clarinet.test({
+  name: '`revote`- can be called after `vote`',
+  fn(chain: Chain, accounts: Map<string, Account>) {
+    const { address } = accounts.get('wallet_1')!
+    const { receipts } = chain.mineBlock([
+      Tx.contractCall('color-vote', 'vote', [2, 3, 4, 5].map(uint), address),
+      Tx.contractCall('color-vote', 'revote', [1, 1, 1, 1].map(uint), address),
+    ])
+
+    receipts[0].result.expectOk().expectBool(true)
+    receipts[1].result.expectOk().expectBool(true)
+  },
+})
+
+Clarinet.test({
+  name: '`revote`- throws a forbidden error if the person did not vote',
+  fn(chain: Chain, accounts: Map<string, Account>) {
+    const { address } = accounts.get('wallet_1')!
+    const { receipts } = chain.mineBlock([
+      Tx.contractCall('color-vote', 'revote', [1, 1, 1, 1].map(uint), address),
+    ])
+
+    receipts[0].result.expectErr().expectUint(403)
+  },
+})
+
+Clarinet.test({
+  name: '`revote`- can be called multiple time',
+  fn(chain: Chain, accounts: Map<string, Account>) {
+    const { address } = accounts.get('wallet_1')!
+    const { receipts } = chain.mineBlock([
+      Tx.contractCall('color-vote', 'vote', [1, 1, 1, 1].map(uint), address),
+      Tx.contractCall('color-vote', 'revote', [1, 1, 1, 1].map(uint), address),
+      Tx.contractCall('color-vote', 'revote', [2, 2, 2, 2].map(uint), address),
+    ])
+
+    receipts[0].result.expectOk().expectBool(true)
+    receipts[1].result.expectOk().expectBool(true)
+  },
+})
+
+Clarinet.test({
+  name: '`unvote`- update the total scores',
+  fn(chain: Chain, accounts: Map<string, Account>) {
+    const { address } = accounts.get('wallet_1')!
+    const { receipts } = chain.mineBlock([
+      Tx.contractCall('color-vote', 'vote', [2, 3, 4, 5].map(uint), address),
+      Tx.contractCall('color-vote', 'revote', [3, 3, 3, 3].map(uint), address),
+      Tx.contractCall('color-vote', 'get-colors', [], address),
+    ])
+
+    receipts[2].result.expectList().forEach((c) => {
+      const { score } = c.expectOk().expectTuple() as CVColor
+      score.expectUint(3)
+    })
+  },
+})
