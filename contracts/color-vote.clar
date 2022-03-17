@@ -3,7 +3,7 @@
 (define-constant MAX_SCORE u5)
 (define-data-var scores (list 4 uint) (list u0 u0 u0 u0))
 (define-data-var nb-of-voters uint u0)
-(define-map votes principal bool)
+(define-map votes principal (list 4 uint))
 
 (define-private (is-valid (v uint) (valid bool)) (and valid (<= v MAX_SCORE)))
 
@@ -14,7 +14,27 @@
 
     (var-set scores (map + (var-get scores) values))
     (var-set nb-of-voters (+ (var-get nb-of-voters) u1))
-    (ok (map-insert votes tx-sender true))
+    (ok (map-insert votes tx-sender values))
+  )
+)
+
+(define-public (unvote)
+  (let ((sender-vote (unwrap! (map-get? votes tx-sender) ERR_FORBIDDEN)))
+    (var-set scores (map - (var-get scores) sender-vote))
+    (var-set nb-of-voters (- (var-get nb-of-voters) u1))
+    (ok (map-delete votes tx-sender))
+  )
+)
+
+(define-public (revote (orange uint) (beige uint) (sky uint) (lime uint))
+  (let (
+    (values (list orange beige sky lime))
+    (sender-vote (unwrap! (map-get? votes tx-sender) ERR_FORBIDDEN))
+  )
+    (asserts! (fold is-valid values true) ERR_BAD_REQUEST)
+
+    (var-set scores (map + (map - (var-get scores) sender-vote) values))
+    (ok (map-set votes tx-sender values))
   )
 )
 
