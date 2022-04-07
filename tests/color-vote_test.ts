@@ -281,3 +281,23 @@ Clarinet.test({
     })
   },
 })
+
+Clarinet.test({
+  name: '`get-sender-vote` - returns sender vote',
+  fn(chain: Chain, accounts: Map<string, Account>) {
+    const { address } = accounts.get('wallet_1')!
+    const { receipts } = chain.mineBlock([
+      Tx.contractCall('color-vote', 'get-sender-vote', [], address),
+      Tx.contractCall('color-vote', 'vote', [2, 3, 4, 5].map(uint), address),
+      Tx.contractCall('color-vote', 'get-sender-vote', [], address),
+      Tx.contractCall('color-vote', 'unvote', [], address),
+      Tx.contractCall('color-vote', 'get-sender-vote', [], address),
+    ])
+
+    receipts[0].result.expectNone()
+    receipts[1].result.expectOk()
+    console.log(receipts[2].result.expectSome().expectList())
+    receipts[3].result.expectOk()
+    receipts[4].result.expectNone()
+  },
+})
