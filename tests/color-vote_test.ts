@@ -4,7 +4,7 @@ import {
   Account,
   Tx,
   types,
-} from 'https://deno.land/x/clarinet@v0.27.0/index.ts'
+} from 'https://deno.land/x/clarinet@v0.28.1/index.ts'
 
 const { uint } = types
 
@@ -43,7 +43,7 @@ Clarinet.test({
     const color = receipts[0].result.expectOk().expectTuple() as CVColor
     color.id.expectUint(1)
     color.score.expectUint(0)
-    color.value.expectAscii('D1C0A8')
+    color.value.expectAscii('e8d2a2')
   },
 })
 
@@ -69,7 +69,7 @@ Clarinet.test({
 
     const colors = receipts[0].result.expectList()
 
-    const expectedColors = ['F97316', 'D1C0A8', '2563EB', '65A30D']
+    const expectedColors = ['ff8a2b', 'e8d2a2', '2bcdff', '2fcc1a']
     colors.forEach((colorTuple, i) => {
       const color = colorTuple.expectOk().expectTuple() as CVColor
       color.id.expectUint(i)

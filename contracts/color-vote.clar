@@ -1,5 +1,5 @@
 ;; orange beige sky lime
-(define-constant COLORS (list "F97316" "D1C0A8" "2563EB" "65A30D"))
+(define-constant COLORS (list "ff8a2b" "e8d2a2" "2bcdff" "2fcc1a"))
 (define-constant MAX_SCORE u5)
 (define-data-var scores (list 4 uint) (list u0 u0 u0 u0))
 (define-data-var nb-of-voters uint u0)
@@ -39,6 +39,8 @@
 )
 
 (define-read-only (get-nb-of-voters) (var-get nb-of-voters))
+
+(define-read-only (get-sender-vote) (map-get? votes tx-sender))
 
 (define-read-only (get-color (id uint))
   (ok {
