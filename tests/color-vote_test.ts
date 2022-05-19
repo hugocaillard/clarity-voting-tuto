@@ -4,7 +4,7 @@ import {
   Account,
   Tx,
   types,
-} from 'https://deno.land/x/clarinet@v0.28.1/index.ts'
+} from 'https://deno.land/x/clarinet@v0.30.0/index.ts'
 
 const { uint } = types
 
@@ -296,7 +296,6 @@ Clarinet.test({
 
     receipts[0].result.expectNone()
     receipts[1].result.expectOk()
-    console.log(receipts[2].result.expectSome().expectList())
     receipts[3].result.expectOk()
     receipts[4].result.expectNone()
   },
