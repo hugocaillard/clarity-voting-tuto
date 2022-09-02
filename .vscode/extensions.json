@@ -1,4 +1,4 @@
 {
-  "recommendations": ["denoland.vscode-deno", "hirosystems.clarity-lsp"],
+  "recommendations": ["denoland.vscode-deno", "hugoclrd.obscurity-lsp"],
   "unwantedRecommendations": []
 }
