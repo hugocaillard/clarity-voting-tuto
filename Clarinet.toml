@@ -3,10 +3,9 @@ name = "clarity-voting-tuto"
 authors = []
 description = ""
 telemetry = false
-requirements = []
+
 [contracts.color-vote]
 path = "contracts/color-vote.clar"
-depends_on = []
 
 [repl]
 costs_version = 2

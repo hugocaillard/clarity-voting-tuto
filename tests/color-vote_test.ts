@@ -4,7 +4,8 @@ import {
   Account,
   Tx,
   types,
-} from 'https://deno.land/x/clarinet@v0.28.1/index.ts'
+} from 'https://deno.land/x/clarinet@v1.0.5/index.ts'
+import { assertObjectMatch } from 'https://deno.land/std@0.160.0/testing/asserts.ts'
 
 const { uint } = types
 
@@ -39,11 +40,11 @@ Clarinet.test({
       Tx.contractCall('color-vote', 'get-color', [uint(1)], address),
     ])
 
-    // `as CVColor` is not the cleanest way to do it but it's good enough
-    const color = receipts[0].result.expectOk().expectTuple() as CVColor
-    color.id.expectUint(1)
-    color.score.expectUint(0)
-    color.value.expectAscii('e8d2a2')
+    assertObjectMatch(receipts[0].result.expectOk().expectTuple() as CVColor, {
+      id: types.uint(1),
+      score: types.uint(0),
+      value: types.ascii('e8d2a2'),
+    })
   },
 })
 
@@ -296,7 +297,7 @@ Clarinet.test({
 
     receipts[0].result.expectNone()
     receipts[1].result.expectOk()
-    console.log(receipts[2].result.expectSome().expectList())
+    receipts[2].result.expectSome().expectList()
     receipts[3].result.expectOk()
     receipts[4].result.expectNone()
   },
