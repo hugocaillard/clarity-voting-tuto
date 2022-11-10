@@ -4,7 +4,7 @@ import {
   Account,
   Tx,
   types,
-} from 'https://deno.land/x/clarinet@v0.28.1/index.ts'
+} from '../../../hiro/clarinet/components/clarinet-deno/index.ts'
 
 const { uint } = types
 
@@ -187,6 +187,7 @@ Clarinet.test({
       Tx.contractCall('color-vote', 'get-elected', [], address),
     ])
 
+    receipts[1].result.expectOk()
     receipts[2].result.expectOk()
     const winner = receipts[3].result.expectSome().expectTuple() as CVElected
     winner.id.expectUint(0)
@@ -296,7 +297,6 @@ Clarinet.test({
 
     receipts[0].result.expectNone()
     receipts[1].result.expectOk()
-    console.log(receipts[2].result.expectSome().expectList())
     receipts[3].result.expectOk()
     receipts[4].result.expectNone()
   },

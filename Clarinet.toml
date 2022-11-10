@@ -1,22 +1,20 @@
 [project]
-name = "clarity-voting-tuto"
-authors = []
-description = ""
+name = 'clarity-voting-tuto'
+description = 'A demonstration of a voting smart contract for the tutorials published on https://clearness.dev'
+authors = ["Hugo Caillard"]
 telemetry = false
-requirements = []
+cache_dir = '.cache'
+
+[[project.requirements]]
+contract_id = 'SP2PABAF9FTAJYNFZH93XENAJ8FVY99RRM50D2JG9.nft-trait'
 [contracts.color-vote]
-path = "contracts/color-vote.clar"
-depends_on = []
-
-[repl]
-costs_version = 2
-parser_version = 2
-
+path = 'contracts/color-vote.clar'
+clarity_version = 1
 [repl.analysis]
-passes = ["check_checker"]
+passes = ['check_checker']
 
 [repl.analysis.check_checker]
-strict = false
+strict = true
 trusted_sender = false
 trusted_caller = false
 callee_filter = false

@@ -1,0 +1,520 @@
+[2m2022-11-05T18:46:03.231910Z[0m [32m INFO[0m [2mstacks_network::chains_coordinator[0m[2m:[0m Checking contracts...
+[2m2022-11-05T18:46:03.250488Z[0m [32m INFO[0m [2mstacks_network[0m[2m:[0m Starting Devnet...
+[2m2022-11-05T18:46:03.251631Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Event observer starting with config EventObserverConfig { normalization_enabled: true, grpc_server_enabled: false, hooks_enabled: true, initial_hook_formation: Some(HookFormation { stacks_chainhooks: [], bitcoin_chainhooks: [] }), bitcoin_rpc_proxy_enabled: true, event_handlers: [], ingestion_port: 20445, control_port: 20446, bitcoin_node_username: "devnet", bitcoin_node_password: "devnet", bitcoin_node_rpc_host: "http://localhost", bitcoin_node_rpc_port: 18443, stacks_node_rpc_host: "http://localhost", stacks_node_rpc_port: 20443, operators: {}, display_logs: true }    
+[2m2022-11-05T18:46:03.253655Z[0m [32m INFO[0m [2mrocket::launch[0m[2m:[0m 🔧 Configured for release.    
+[2m2022-11-05T18:46:03.253673Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m address: [1;49;39m0.0.0.0[0m    
+[2m2022-11-05T18:46:03.253675Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m port: [1;49;39m20445[0m    
+[2m2022-11-05T18:46:03.253676Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m workers: [1;49;39m3[0m    
+[2m2022-11-05T18:46:03.253677Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m ident: [1;49;39mRocket[0m    
+[2m2022-11-05T18:46:03.253678Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m limits: [1;49;39mbytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 4MB, msgpack = 1MiB, string = 8KiB[0m    
+[2m2022-11-05T18:46:03.253681Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m temp dir: [1;49;39m/var/folders/17/1dbbdlvs4qq208ll16ywp8dc0000gn/T/[0m    
+[2m2022-11-05T18:46:03.253683Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m http/2: [1;49;39mtrue[0m    
+[2m2022-11-05T18:46:03.253684Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m keep-alive: [1;49;39m5[0m[1;49;39ms[0m    
+[2m2022-11-05T18:46:03.253685Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m tls: [1;49;39mdisabled[0m    
+[2m2022-11-05T18:46:03.253686Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m shutdown: [1;49;39mctrlc = true, force = true, signals = [SIGTERM], grace = 2s, mercy = 3s[0m    
+[2m2022-11-05T18:46:03.253687Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m log level: [1;49;39mdebug[0m    
+[2m2022-11-05T18:46:03.253688Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m cli colors: [1;49;39mtrue[0m    
+[2m2022-11-05T18:46:03.253700Z[0m [32m INFO[0m [2mrocket::launch[0m[2m:[0m 📬 [35mRoutes[0m:    
+[2m2022-11-05T18:46:03.253721Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:03.253724Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m [36m([0m[37mhandle_ping[0m[36m)[0m [32mGET[0m [34m/ping[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:03.253725Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m [36m([0m[37mhandle_new_stacks_block[0m[36m)[0m [32mPOST[0m [34m/new_block[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:03.253727Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m [36m([0m[37mhandle_new_bitcoin_block[0m[36m)[0m [32mPOST[0m [34m/new_burn_block[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:03.253728Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m [36m([0m[37mhandle_new_mempool_tx[0m[36m)[0m [32mPOST[0m [34m/new_mempool_tx[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:03.253729Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m [36m([0m[37mhandle_new_microblocks[0m[36m)[0m [32mPOST[0m [34m/new_microblocks[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:03.253730Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m [36m([0m[37mhandle_drop_mempool_tx[0m[36m)[0m [32mPOST[0m [34m/drop_mempool_tx[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:03.253732Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m [36m([0m[37mhandle_new_attachement[0m[36m)[0m [32mPOST[0m [34m/attachments/new[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:03.253734Z[0m [32m INFO[0m [2mrocket::launch[0m[2m:[0m 📡 [35mFairings[0m:    
+[2m2022-11-05T18:46:03.253735Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m [1;49;39mShield[0m ([1;34mliftoff, response, singleton[0m)    
+[2m2022-11-05T18:46:03.253965Z[0m [32m INFO[0m [2mrocket::shield::shield[0m[2m:[0m 🛡️ [35mShield[0m:    
+[2m2022-11-05T18:46:03.253968Z[0m [32m INFO[0m [2m_[0m[2m:[0m X-Content-Type-Options: [49;39mnosniff[0m    
+[2m2022-11-05T18:46:03.253969Z[0m [32m INFO[0m [2m_[0m[2m:[0m Permissions-Policy: [49;39minterest-cohort=()[0m    
+[2m2022-11-05T18:46:03.253970Z[0m [32m INFO[0m [2m_[0m[2m:[0m X-Frame-Options: [49;39mSAMEORIGIN[0m    
+[2m2022-11-05T18:46:03.253972Z[0m [32m INFO[0m [2mrocket::launch[0m[2m:[0m 🚀 [1;49;39mRocket has launched from[0m [1;4;49;39mhttp://0.0.0.0:20445[0m    
+[2m2022-11-05T18:46:03.254452Z[0m [32m INFO[0m [2mrocket::launch[0m[2m:[0m 🔧 Configured for release.    
+[2m2022-11-05T18:46:03.254455Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m address: [1;49;39m0.0.0.0[0m    
+[2m2022-11-05T18:46:03.254456Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m port: [1;49;39m20446[0m    
+[2m2022-11-05T18:46:03.254457Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m workers: [1;49;39m1[0m    
+[2m2022-11-05T18:46:03.254458Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m ident: [1;49;39mRocket[0m    
+[2m2022-11-05T18:46:03.254459Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m limits: [1;49;39mbytes = 8KiB, data-form = 2MiB, file = 1MiB, form = 32KiB, json = 1MiB, msgpack = 1MiB, string = 8KiB[0m    
+[2m2022-11-05T18:46:03.254461Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m temp dir: [1;49;39m/var/folders/17/1dbbdlvs4qq208ll16ywp8dc0000gn/T/[0m    
+[2m2022-11-05T18:46:03.254462Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m http/2: [1;49;39mtrue[0m    
+[2m2022-11-05T18:46:03.254463Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m keep-alive: [1;49;39m5[0m[1;49;39ms[0m    
+[2m2022-11-05T18:46:03.254464Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m tls: [1;49;39mdisabled[0m    
+[2m2022-11-05T18:46:03.254465Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m shutdown: [1;49;39mctrlc = true, force = true, signals = [SIGTERM], grace = 2s, mercy = 3s[0m    
+[2m2022-11-05T18:46:03.254466Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m log level: [1;49;39mdebug[0m    
+[2m2022-11-05T18:46:03.254467Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m cli colors: [1;49;39mtrue[0m    
+[2m2022-11-05T18:46:03.254476Z[0m [32m INFO[0m [2mrocket::launch[0m[2m:[0m 📬 [35mRoutes[0m:    
+[2m2022-11-05T18:46:03.254480Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m [36m([0m[37mhandle_ping[0m[36m)[0m [32mGET[0m [34m/ping[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:03.254481Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m [32mGET[0m [34m/openapi.json[0m    
+[2m2022-11-05T18:46:03.254482Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m [36m([0m[37mhandle_get_hooks[0m[36m)[0m [32mGET[0m [34m/v1/chainhooks[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:03.254484Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m [36m([0m[37mhandle_create_hook[0m[36m)[0m [32mPOST[0m [34m/v1/chainhooks[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:03.254485Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m [36m([0m[37mhandle_delete_stacks_hook[0m[36m)[0m [32mDELETE[0m [34m/v1/chainhooks/stacks/<hook_uuid>[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:03.254486Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m [36m([0m[37mhandle_delete_bitcoin_hook[0m[36m)[0m [32mDELETE[0m [34m/v1/chainhooks/bitcoin/<hook_uuid>[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:03.254488Z[0m [32m INFO[0m [2mrocket::launch[0m[2m:[0m 📡 [35mFairings[0m:    
+[2m2022-11-05T18:46:03.254489Z[0m [32m INFO[0m [2mrocket::launch_[0m[2m:[0m [1;49;39mShield[0m ([1;34mliftoff, response, singleton[0m)    
+[2m2022-11-05T18:46:03.254533Z[0m [32m INFO[0m [2mrocket::shield::shield[0m[2m:[0m 🛡️ [35mShield[0m:    
+[2m2022-11-05T18:46:03.254536Z[0m [32m INFO[0m [2m_[0m[2m:[0m X-Content-Type-Options: [49;39mnosniff[0m    
+[2m2022-11-05T18:46:03.254537Z[0m [32m INFO[0m [2m_[0m[2m:[0m Permissions-Policy: [49;39minterest-cohort=()[0m    
+[2m2022-11-05T18:46:03.254538Z[0m [32m INFO[0m [2m_[0m[2m:[0m X-Frame-Options: [49;39mSAMEORIGIN[0m    
+[2m2022-11-05T18:46:03.254539Z[0m [32m INFO[0m [2mrocket::launch[0m[2m:[0m 🚀 [1;49;39mRocket has launched from[0m [1;4;49;39mhttp://0.0.0.0:20446[0m    
+[2m2022-11-05T18:46:03.282426Z[0m [32m INFO[0m [2mstacks_network::ui::app[0m[2m:[0m Initiating Devnet boot sequence (working_dir: /Users/hugo/Sites/clearness-project/clarity-voting-tuto/.cache/stacks-devnet-1667673963)
+[2m2022-11-05T18:46:03.283819Z[0m [32m INFO[0m [2mstacks_network::ui::app[0m[2m:[0m Creating network clarity-voting-tuto.devnet
+[2m2022-11-05T18:46:03.333972Z[0m [32m INFO[0m [2mstacks_network::ui::app[0m[2m:[0m Starting bitcoin-node
+[2m2022-11-05T18:46:04.851200Z[0m [32m INFO[0m [2mstacks_network::orchestrator[0m[2m:[0m Created container bitcoin-node: bb629c7cf28002ecceba839c4592fe20c36f0ddbed34fdf9b053142b4988b069
+[2m2022-11-05T18:46:05.375486Z[0m [32m INFO[0m [2mstacks_network::ui::app[0m[2m:[0m Configuring bitcoin-node
+[2m2022-11-05T18:46:21.385727Z[0m [32m INFO[0m [2mstacks_network::ui::app[0m[2m:[0m Waiting for bitcoin-node
+[2m2022-11-05T18:46:26.460659Z[0m [32m INFO[0m [2mstacks_network::ui::app[0m[2m:[0m Starting postgres
+[2m2022-11-05T18:46:27.948668Z[0m [32m INFO[0m [2mstacks_network::orchestrator[0m[2m:[0m Created container postgres: a633a18baf962421bebe5cfea278a2fd60039c679a8188c1d0f1769d9c3408ca
+[2m2022-11-05T18:46:28.400897Z[0m [32m INFO[0m [2mstacks_network::ui::app[0m[2m:[0m Starting stacks-api
+[2m2022-11-05T18:46:29.711984Z[0m [32m INFO[0m [2mstacks_network::orchestrator[0m[2m:[0m Created container stacks-api: 2e66052fe67b41f3a6a778befbae36775868bf0c307a10c4af0825a613b67d15
+[2m2022-11-05T18:46:30.182308Z[0m [32m INFO[0m [2mstacks_network::ui::app[0m[2m:[0m Starting stacks-node
+[2m2022-11-05T18:46:31.515402Z[0m [32m INFO[0m [2mstacks_network::orchestrator[0m[2m:[0m Created container stacks-node: 1fe1c8be280518f854a4f7e6da447bf94644a73ee06ae993dacbab00f91658d8
+[2m2022-11-05T18:46:32.316837Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:46:32.316926Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:32.317360Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:46:32.325663Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:46:32.325885Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:46:32.336657Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:46:32.336672Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:32.336702Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:46:32.341494Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:46:32.341522Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:46:32.345489Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:46:32.345503Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:32.345531Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:46:32.355042Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:46:32.355088Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:46:33.245867Z[0m [32m INFO[0m [2mstacks_network::orchestrator[0m[2m:[0m Created container stacks-explorer: 61ac19e122b1ce41dd4560ca15edb261ccbb723933b5d1baad744e3889baca32
+[2m2022-11-05T18:46:33.245995Z[0m [32m INFO[0m [2mstacks_network::ui::app[0m[2m:[0m Starting stacks-explorer
+[2m2022-11-05T18:46:33.890743Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/new_burn_block[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:46:33.890775Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_new_bitcoin_block[0m[36m)[0m [32mPOST[0m [34m/new_burn_block[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:33.890814Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /new_burn_block    
+[2m2022-11-05T18:46:33.898351Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Start processing Bitcoin Block #101 (0x708c...6d65)    
+[2m2022-11-05T18:46:33.898389Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Active fork 0: Fork [], height = 0    
+[2m2022-11-05T18:46:33.898395Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Trying to append Block #101 (0x708c...6d65) to Fork [], height = 0    
+[2m2022-11-05T18:46:33.898399Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Bitcoin Block #101 (0x708c...6d65) successfully appended to Fork [Block #101 (0x708c...6d65)], height = 1    
+[2m2022-11-05T18:46:33.898405Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Active fork: 0 - Fork [Block #101 (0x708c...6d65)], height = 1    
+[2m2022-11-05T18:46:33.898408Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Active fork selected as canonical: 0    
+[2m2022-11-05T18:46:33.898437Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:46:33.898472Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:46:33.898783Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling PropagateBitcoinChainEvent command    
+[2m2022-11-05T18:46:33.898789Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Evaluating 0 bitcoin chainhooks registered    
+[2m2022-11-05T18:46:33.898791Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m 0 bitcoin chainhooks positive evaluations    
+[2m2022-11-05T18:46:33.898813Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m 0 bitcoin chainhooks will be triggered    
+[2m2022-11-05T18:46:33.898822Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m 0 bitcoin chainhooks to deregister    
+[2m2022-11-05T18:46:35.194926Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:46:35.194954Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:35.194991Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:46:35.200765Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:46:35.200811Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:46:35.204547Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:46:35.204565Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:35.204601Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:46:35.209981Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:46:35.210010Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:46:35.224663Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:46:35.224691Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:35.224722Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:46:35.224812Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling NotifyBitcoinTransactionProxied command    
+[2m2022-11-05T18:46:35.248347Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:46:35.248392Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:46:41.516529Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/new_burn_block[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:46:41.516596Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_new_bitcoin_block[0m[36m)[0m [32mPOST[0m [34m/new_burn_block[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:41.516639Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /new_burn_block    
+[2m2022-11-05T18:46:41.521788Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Start processing Bitcoin Block #102 (0x4d42...c35c)    
+[2m2022-11-05T18:46:41.521831Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Active fork 0: Fork [Block #101 (0x708c...6d65)], height = 1    
+[2m2022-11-05T18:46:41.521846Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Trying to append Block #102 (0x4d42...c35c) to Fork [Block #101 (0x708c...6d65)], height = 1    
+[2m2022-11-05T18:46:41.521850Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Comparing Block #101 (0x708c...6d65) with Block #102 (0x4d42...c35c)    
+[2m2022-11-05T18:46:41.521855Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Bitcoin Block #102 (0x4d42...c35c) successfully appended to Fork [Block #102 (0x4d42...c35c), Block #101 (0x708c...6d65)], height = 2    
+[2m2022-11-05T18:46:41.521860Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Active fork: 0 - Fork [Block #102 (0x4d42...c35c), Block #101 (0x708c...6d65)], height = 2    
+[2m2022-11-05T18:46:41.521863Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Active fork selected as canonical: 0    
+[2m2022-11-05T18:46:41.521891Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:46:41.521925Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:46:41.522012Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling PropagateBitcoinChainEvent command    
+[2m2022-11-05T18:46:41.522027Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Evaluating 0 bitcoin chainhooks registered    
+[2m2022-11-05T18:46:41.522029Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m 0 bitcoin chainhooks positive evaluations    
+[2m2022-11-05T18:46:41.522032Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m 0 bitcoin chainhooks will be triggered    
+[2m2022-11-05T18:46:41.522046Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m 0 bitcoin chainhooks to deregister    
+[2m2022-11-05T18:46:41.625549Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:46:41.625595Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:41.625628Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:46:41.631138Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:46:41.631205Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:46:41.634433Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:46:41.634454Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:41.634488Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:46:41.640074Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:46:41.640117Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:46:41.646449Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:46:41.646506Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:41.646540Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:46:41.646681Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling NotifyBitcoinTransactionProxied command    
+[2m2022-11-05T18:46:41.656356Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:46:41.656407Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:46:43.778131Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/new_burn_block[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:46:43.778161Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_new_bitcoin_block[0m[36m)[0m [32mPOST[0m [34m/new_burn_block[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:43.778199Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /new_burn_block    
+[2m2022-11-05T18:46:43.783297Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Start processing Bitcoin Block #103 (0x353d...6c93)    
+[2m2022-11-05T18:46:43.783330Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Active fork 0: Fork [Block #102 (0x4d42...c35c), Block #101 (0x708c...6d65)], height = 2    
+[2m2022-11-05T18:46:43.783338Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Trying to append Block #103 (0x353d...6c93) to Fork [Block #102 (0x4d42...c35c), Block #101 (0x708c...6d65)], height = 2    
+[2m2022-11-05T18:46:43.783345Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Comparing Block #102 (0x4d42...c35c) with Block #103 (0x353d...6c93)    
+[2m2022-11-05T18:46:43.783348Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Bitcoin Block #103 (0x353d...6c93) successfully appended to Fork [Block #103 (0x353d...6c93), Block #102 (0x4d42...c35c), Block #101 (0x708c...6d65)], height = 3    
+[2m2022-11-05T18:46:43.783354Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Active fork: 0 - Fork [Block #103 (0x353d...6c93), Block #102 (0x4d42...c35c), Block #101 (0x708c...6d65)], height = 3    
+[2m2022-11-05T18:46:43.783357Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Active fork selected as canonical: 0    
+[2m2022-11-05T18:46:43.783390Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:46:43.783424Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:46:43.783518Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling PropagateBitcoinChainEvent command    
+[2m2022-11-05T18:46:43.783524Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Evaluating 0 bitcoin chainhooks registered    
+[2m2022-11-05T18:46:43.783527Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m 0 bitcoin chainhooks positive evaluations    
+[2m2022-11-05T18:46:43.783530Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m 0 bitcoin chainhooks will be triggered    
+[2m2022-11-05T18:46:43.783540Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m 0 bitcoin chainhooks to deregister    
+[2m2022-11-05T18:46:44.067256Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/new_block[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:46:44.067287Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_new_stacks_block[0m[36m)[0m [32mPOST[0m [34m/new_block[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:44.075234Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /new_block    
+[2m2022-11-05T18:46:44.082775Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Start processing Stacks Block #1 (0x34a5...b6f4)    
+[2m2022-11-05T18:46:44.082846Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Active fork 0: Fork [], height = 0    
+[2m2022-11-05T18:46:44.082852Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Trying to append Block #1 (0x34a5...b6f4) to Fork [], height = 0    
+[2m2022-11-05T18:46:44.082855Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Stacks Block #1 (0x34a5...b6f4) successfully appended to Fork [Block #1 (0x34a5...b6f4)], height = 1    
+[2m2022-11-05T18:46:44.082861Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Active fork: 0 - Fork [Block #1 (0x34a5...b6f4)], height = 1 / 103    
+[2m2022-11-05T18:46:44.082864Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Active fork selected as canonical: 0    
+[2m2022-11-05T18:46:44.082936Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m No block to confirm    
+[2m2022-11-05T18:46:44.082975Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling PropagateStacksChainEvent command    
+[2m2022-11-05T18:46:44.082980Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:46:44.083014Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:46:44.086941Z[0m [32m INFO[0m [2mstacks_network::ui::app[0m[2m:[0m Stacks Block #1 anchored in Bitcoin block #103 includes 8 transactions
+[2m2022-11-05T18:46:44.143411Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/new_mempool_tx[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:46:44.143431Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_new_mempool_tx[0m[36m)[0m [32mPOST[0m [34m/new_mempool_tx[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:44.143476Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /new_mempool_tx    
+[2m2022-11-05T18:46:44.143518Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:46:44.143533Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:46:44.143532Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling PropagateStacksMempoolEvent command    
+[2m2022-11-05T18:46:44.504303Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/new_mempool_tx[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:46:44.504334Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_new_mempool_tx[0m[36m)[0m [32mPOST[0m [34m/new_mempool_tx[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:44.504536Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /new_mempool_tx    
+[2m2022-11-05T18:46:44.504730Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling PropagateStacksMempoolEvent command    
+[2m2022-11-05T18:46:44.504730Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:46:44.504765Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:46:47.462033Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:46:47.462060Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:47.462090Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:46:47.466802Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:46:47.466867Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:46:47.470048Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:46:47.470069Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:47.470121Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:46:47.476726Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:46:47.476797Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:46:47.483260Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:46:47.483285Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:47.483319Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:46:47.483418Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling NotifyBitcoinTransactionProxied command    
+[2m2022-11-05T18:46:47.491730Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:46:47.491771Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:46:49.383250Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/new_burn_block[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:46:49.383278Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_new_bitcoin_block[0m[36m)[0m [32mPOST[0m [34m/new_burn_block[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:49.383317Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /new_burn_block    
+[2m2022-11-05T18:46:49.387528Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Start processing Bitcoin Block #104 (0x6918...a667)    
+[2m2022-11-05T18:46:49.387547Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Active fork 0: Fork [Block #103 (0x353d...6c93), Block #102 (0x4d42...c35c), Block #101 (0x708c...6d65)], height = 3    
+[2m2022-11-05T18:46:49.387556Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Trying to append Block #104 (0x6918...a667) to Fork [Block #103 (0x353d...6c93), Block #102 (0x4d42...c35c), Block #101 (0x708c...6d65)], height = 3    
+[2m2022-11-05T18:46:49.387562Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Comparing Block #103 (0x353d...6c93) with Block #104 (0x6918...a667)    
+[2m2022-11-05T18:46:49.387565Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Bitcoin Block #104 (0x6918...a667) successfully appended to Fork [Block #104 (0x6918...a667), Block #103 (0x353d...6c93), Block #102 (0x4d42...c35c), Block #101 (0x708c...6d65)], height = 4    
+[2m2022-11-05T18:46:49.387571Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Active fork: 0 - Fork [Block #104 (0x6918...a667), Block #103 (0x353d...6c93), Block #102 (0x4d42...c35c), Block #101 (0x708c...6d65)], height = 4    
+[2m2022-11-05T18:46:49.387705Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Active fork selected as canonical: 0    
+[2m2022-11-05T18:46:49.387742Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:46:49.387773Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:46:49.387878Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling PropagateBitcoinChainEvent command    
+[2m2022-11-05T18:46:49.387883Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Evaluating 0 bitcoin chainhooks registered    
+[2m2022-11-05T18:46:49.387886Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m 0 bitcoin chainhooks positive evaluations    
+[2m2022-11-05T18:46:49.387890Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m 0 bitcoin chainhooks will be triggered    
+[2m2022-11-05T18:46:49.387900Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m 0 bitcoin chainhooks to deregister    
+[2m2022-11-05T18:46:49.836120Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/new_block[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:46:49.836151Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_new_stacks_block[0m[36m)[0m [32mPOST[0m [34m/new_block[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:49.836895Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /new_block    
+[2m2022-11-05T18:46:49.837399Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Start processing Stacks Block #2 (0xc4c4...f0f9)    
+[2m2022-11-05T18:46:49.837412Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Active fork 0: Fork [Block #1 (0x34a5...b6f4)], height = 1    
+[2m2022-11-05T18:46:49.837419Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Trying to append Block #2 (0xc4c4...f0f9) to Fork [Block #1 (0x34a5...b6f4)], height = 1    
+[2m2022-11-05T18:46:49.837435Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Comparing Block #1 (0x34a5...b6f4) with Block #2 (0xc4c4...f0f9)    
+[2m2022-11-05T18:46:49.837438Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Stacks Block #2 (0xc4c4...f0f9) successfully appended to Fork [Block #2 (0xc4c4...f0f9), Block #1 (0x34a5...b6f4)], height = 2    
+[2m2022-11-05T18:46:49.837443Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Active fork: 0 - Fork [Block #2 (0xc4c4...f0f9), Block #1 (0x34a5...b6f4)], height = 2 / 104    
+[2m2022-11-05T18:46:49.837447Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Active fork selected as canonical: 0    
+[2m2022-11-05T18:46:49.837458Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m No block to confirm    
+[2m2022-11-05T18:46:49.837492Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:46:49.837520Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:46:49.837869Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling PropagateStacksChainEvent command    
+[2m2022-11-05T18:46:49.839744Z[0m [32m INFO[0m [2mstacks_network::ui::app[0m[2m:[0m Stacks Block #2 anchored in Bitcoin block #104 includes 3 transactions
+[2m2022-11-05T18:46:52.830542Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:46:52.830569Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:52.830601Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:46:52.834661Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:46:52.834696Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:46:52.837418Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:46:52.837432Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:52.837454Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:46:52.842668Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:46:52.842696Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:46:52.847938Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:46:52.847965Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:52.847997Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:46:52.848263Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling NotifyBitcoinTransactionProxied command    
+[2m2022-11-05T18:46:52.855981Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:46:52.856057Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:46:54.303514Z[0m [32m INFO[0m [2mstacks_network::ui::app[0m[2m:[0m Protocol successfully deployed
+[2m2022-11-05T18:46:55.056240Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/new_burn_block[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:46:55.056275Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_new_bitcoin_block[0m[36m)[0m [32mPOST[0m [34m/new_burn_block[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:55.056322Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /new_burn_block    
+[2m2022-11-05T18:46:55.062057Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Start processing Bitcoin Block #105 (0x1072...3fd3)    
+[2m2022-11-05T18:46:55.062112Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Active fork 0: Fork [Block #104 (0x6918...a667), Block #103 (0x353d...6c93), Block #102 (0x4d42...c35c), Block #101 (0x708c...6d65)], height = 4    
+[2m2022-11-05T18:46:55.062147Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Trying to append Block #105 (0x1072...3fd3) to Fork [Block #104 (0x6918...a667), Block #103 (0x353d...6c93), Block #102 (0x4d42...c35c), Block #101 (0x708c...6d65)], height = 4    
+[2m2022-11-05T18:46:55.062152Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Comparing Block #104 (0x6918...a667) with Block #105 (0x1072...3fd3)    
+[2m2022-11-05T18:46:55.062155Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Bitcoin Block #105 (0x1072...3fd3) successfully appended to Fork [Block #105 (0x1072...3fd3), Block #104 (0x6918...a667), Block #103 (0x353d...6c93), Block #102 (0x4d42...c35c), Block #101 (0x708c...6d65)], height = 5    
+[2m2022-11-05T18:46:55.062162Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Active fork: 0 - Fork [Block #105 (0x1072...3fd3), Block #104 (0x6918...a667), Block #103 (0x353d...6c93), Block #102 (0x4d42...c35c), Block #101 (0x708c...6d65)], height = 5    
+[2m2022-11-05T18:46:55.062166Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Active fork selected as canonical: 0    
+[2m2022-11-05T18:46:55.062201Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:46:55.062236Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:46:55.062412Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling PropagateBitcoinChainEvent command    
+[2m2022-11-05T18:46:55.062417Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Evaluating 0 bitcoin chainhooks registered    
+[2m2022-11-05T18:46:55.062419Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m 0 bitcoin chainhooks positive evaluations    
+[2m2022-11-05T18:46:55.062422Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m 0 bitcoin chainhooks will be triggered    
+[2m2022-11-05T18:46:55.062432Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m 0 bitcoin chainhooks to deregister    
+[2m2022-11-05T18:46:55.216071Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/new_block[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:46:55.216104Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_new_stacks_block[0m[36m)[0m [32mPOST[0m [34m/new_block[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:55.216330Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /new_block    
+[2m2022-11-05T18:46:55.216405Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Start processing Stacks Block #3 (0x019f...d4b9)    
+[2m2022-11-05T18:46:55.216415Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Active fork 0: Fork [Block #2 (0xc4c4...f0f9), Block #1 (0x34a5...b6f4)], height = 2    
+[2m2022-11-05T18:46:55.216423Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Trying to append Block #3 (0x019f...d4b9) to Fork [Block #2 (0xc4c4...f0f9), Block #1 (0x34a5...b6f4)], height = 2    
+[2m2022-11-05T18:46:55.216428Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Comparing Block #2 (0xc4c4...f0f9) with Block #3 (0x019f...d4b9)    
+[2m2022-11-05T18:46:55.216431Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Stacks Block #3 (0x019f...d4b9) successfully appended to Fork [Block #3 (0x019f...d4b9), Block #2 (0xc4c4...f0f9), Block #1 (0x34a5...b6f4)], height = 3    
+[2m2022-11-05T18:46:55.216437Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Active fork: 0 - Fork [Block #3 (0x019f...d4b9), Block #2 (0xc4c4...f0f9), Block #1 (0x34a5...b6f4)], height = 3 / 105    
+[2m2022-11-05T18:46:55.216441Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Active fork selected as canonical: 0    
+[2m2022-11-05T18:46:55.216452Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m No block to confirm    
+[2m2022-11-05T18:46:55.216478Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:46:55.216505Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:46:55.216594Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling PropagateStacksChainEvent command    
+[2m2022-11-05T18:46:55.218503Z[0m [32m INFO[0m [2mstacks_network::ui::app[0m[2m:[0m Stacks Block #3 anchored in Bitcoin block #105 includes 1 transactions
+[2m2022-11-05T18:46:58.500373Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:46:58.500400Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:58.500431Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:46:58.504681Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:46:58.504717Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:46:58.508167Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:46:58.508186Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:58.508215Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:46:58.514142Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:46:58.514191Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:46:58.518708Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:46:58.518735Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:46:58.518765Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:46:58.518884Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling NotifyBitcoinTransactionProxied command    
+[2m2022-11-05T18:46:58.527453Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:46:58.527499Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:48:21.209060Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:48:21.209161Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:48:21.209215Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:48:21.209538Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling NotifyBitcoinTransactionProxied command    
+[2m2022-11-05T18:48:21.233295Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:48:21.233433Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:48:21.241313Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/new_mempool_tx[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:48:21.241772Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_new_mempool_tx[0m[36m)[0m [32mPOST[0m [34m/new_mempool_tx[0m [33mapplication/json[0m    
+[2m2022-11-05T18:48:21.241800Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /new_mempool_tx    
+[2m2022-11-05T18:48:21.241921Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling PropagateStacksMempoolEvent command    
+[2m2022-11-05T18:48:21.241921Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:48:21.241948Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:48:24.405575Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/new_burn_block[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:48:24.405602Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_new_bitcoin_block[0m[36m)[0m [32mPOST[0m [34m/new_burn_block[0m [33mapplication/json[0m    
+[2m2022-11-05T18:48:24.405649Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /new_burn_block    
+[2m2022-11-05T18:48:24.411013Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Start processing Bitcoin Block #106 (0x5cde...ec13)    
+[2m2022-11-05T18:48:24.411069Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Active fork 0: Fork [Block #105 (0x1072...3fd3), Block #104 (0x6918...a667), Block #103 (0x353d...6c93), Block #102 (0x4d42...c35c), Block #101 (0x708c...6d65)], height = 5    
+[2m2022-11-05T18:48:24.411087Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Trying to append Block #106 (0x5cde...ec13) to Fork [Block #105 (0x1072...3fd3), Block #104 (0x6918...a667), Block #103 (0x353d...6c93), Block #102 (0x4d42...c35c), Block #101 (0x708c...6d65)], height = 5    
+[2m2022-11-05T18:48:24.411093Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Comparing Block #105 (0x1072...3fd3) with Block #106 (0x5cde...ec13)    
+[2m2022-11-05T18:48:24.411098Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Bitcoin Block #106 (0x5cde...ec13) successfully appended to Fork [Block #106 (0x5cde...ec13), Block #105 (0x1072...3fd3), Block #104 (0x6918...a667), Block #103 (0x353d...6c93), Block #102 (0x4d42...c35c), Block #101 (0x708c...6d65)], height = 6    
+[2m2022-11-05T18:48:24.411105Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Active fork: 0 - Fork [Block #106 (0x5cde...ec13), Block #105 (0x1072...3fd3), Block #104 (0x6918...a667), Block #103 (0x353d...6c93), Block #102 (0x4d42...c35c), Block #101 (0x708c...6d65)], height = 6    
+[2m2022-11-05T18:48:24.411109Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Active fork selected as canonical: 0    
+[2m2022-11-05T18:48:24.411148Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling PropagateBitcoinChainEvent command    
+[2m2022-11-05T18:48:24.411152Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:48:24.411165Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Evaluating 0 bitcoin chainhooks registered    
+[2m2022-11-05T18:48:24.411169Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m 0 bitcoin chainhooks positive evaluations    
+[2m2022-11-05T18:48:24.411172Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m 0 bitcoin chainhooks will be triggered    
+[2m2022-11-05T18:48:24.411180Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m 0 bitcoin chainhooks to deregister    
+[2m2022-11-05T18:48:24.411187Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:48:24.662480Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/new_block[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:48:24.662545Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_new_stacks_block[0m[36m)[0m [32mPOST[0m [34m/new_block[0m [33mapplication/json[0m    
+[2m2022-11-05T18:48:24.662797Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /new_block    
+[2m2022-11-05T18:48:24.663136Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Start processing Stacks Block #4 (0xa90f...a189)    
+[2m2022-11-05T18:48:24.663167Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Active fork 0: Fork [Block #3 (0x019f...d4b9), Block #2 (0xc4c4...f0f9), Block #1 (0x34a5...b6f4)], height = 3    
+[2m2022-11-05T18:48:24.663180Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Trying to append Block #4 (0xa90f...a189) to Fork [Block #3 (0x019f...d4b9), Block #2 (0xc4c4...f0f9), Block #1 (0x34a5...b6f4)], height = 3    
+[2m2022-11-05T18:48:24.663189Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Comparing Block #3 (0x019f...d4b9) with Block #4 (0xa90f...a189)    
+[2m2022-11-05T18:48:24.663195Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Stacks Block #4 (0xa90f...a189) successfully appended to Fork [Block #4 (0xa90f...a189), Block #3 (0x019f...d4b9), Block #2 (0xc4c4...f0f9), Block #1 (0x34a5...b6f4)], height = 4    
+[2m2022-11-05T18:48:24.663205Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Active fork: 0 - Fork [Block #4 (0xa90f...a189), Block #3 (0x019f...d4b9), Block #2 (0xc4c4...f0f9), Block #1 (0x34a5...b6f4)], height = 4 / 106    
+[2m2022-11-05T18:48:24.663213Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Active fork selected as canonical: 0    
+[2m2022-11-05T18:48:24.663233Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m No block to confirm    
+[2m2022-11-05T18:48:24.663273Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:48:24.663415Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:48:24.663276Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling PropagateStacksChainEvent command    
+[2m2022-11-05T18:48:24.666584Z[0m [32m INFO[0m [2mstacks_network::ui::app[0m[2m:[0m Stacks Block #4 anchored in Bitcoin block #106 includes 2 transactions
+[2m2022-11-05T18:48:26.755275Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:48:26.755304Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:48:26.755338Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:48:26.759941Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:48:26.760018Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:48:26.762809Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:48:26.762830Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:48:26.762900Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:48:26.771446Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:48:26.772589Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:48:26.777118Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:48:26.777141Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:48:26.777171Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:48:26.777259Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling NotifyBitcoinTransactionProxied command    
+[2m2022-11-05T18:48:26.787008Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:48:26.787057Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:49:54.558727Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/new_burn_block[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:49:54.558812Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_new_bitcoin_block[0m[36m)[0m [32mPOST[0m [34m/new_burn_block[0m [33mapplication/json[0m    
+[2m2022-11-05T18:49:54.558970Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /new_burn_block    
+[2m2022-11-05T18:49:54.563999Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Start processing Bitcoin Block #107 (0x1077...9eba)    
+[2m2022-11-05T18:49:54.564078Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Active fork 0: Fork [Block #106 (0x5cde...ec13), Block #105 (0x1072...3fd3), Block #104 (0x6918...a667), Block #103 (0x353d...6c93), Block #102 (0x4d42...c35c), Block #101 (0x708c...6d65)], height = 6    
+[2m2022-11-05T18:49:54.564103Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Trying to append Block #107 (0x1077...9eba) to Fork [Block #106 (0x5cde...ec13), Block #105 (0x1072...3fd3), Block #104 (0x6918...a667), Block #103 (0x353d...6c93), Block #102 (0x4d42...c35c), Block #101 (0x708c...6d65)], height = 6    
+[2m2022-11-05T18:49:54.564108Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Comparing Block #106 (0x5cde...ec13) with Block #107 (0x1077...9eba)    
+[2m2022-11-05T18:49:54.564113Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Bitcoin Block #107 (0x1077...9eba) successfully appended to Fork [Block #107 (0x1077...9eba), Block #106 (0x5cde...ec13), Block #105 (0x1072...3fd3), Block #104 (0x6918...a667), Block #103 (0x353d...6c93), Block #102 (0x4d42...c35c), Block #101 (0x708c...6d65)], height = 7    
+[2m2022-11-05T18:49:54.564120Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Active fork: 0 - Fork [Block #107 (0x1077...9eba), Block #106 (0x5cde...ec13), Block #105 (0x1072...3fd3), Block #104 (0x6918...a667), Block #103 (0x353d...6c93), Block #102 (0x4d42...c35c), Block #101 (0x708c...6d65)], height = 7    
+[2m2022-11-05T18:49:54.564125Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Active fork selected as canonical: 0    
+[2m2022-11-05T18:49:54.564319Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling PropagateBitcoinChainEvent command    
+[2m2022-11-05T18:49:54.564331Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:49:54.564339Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Evaluating 0 bitcoin chainhooks registered    
+[2m2022-11-05T18:49:54.564342Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m 0 bitcoin chainhooks positive evaluations    
+[2m2022-11-05T18:49:54.564348Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m 0 bitcoin chainhooks will be triggered    
+[2m2022-11-05T18:49:54.564370Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m 0 bitcoin chainhooks to deregister    
+[2m2022-11-05T18:49:54.564400Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:49:54.975847Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/new_block[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:49:54.975891Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_new_stacks_block[0m[36m)[0m [32mPOST[0m [34m/new_block[0m [33mapplication/json[0m    
+[2m2022-11-05T18:49:54.976076Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /new_block    
+[2m2022-11-05T18:49:54.976196Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Start processing Stacks Block #5 (0x53e9...2c2e)    
+[2m2022-11-05T18:49:54.976236Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Active fork 0: Fork [Block #4 (0xa90f...a189), Block #3 (0x019f...d4b9), Block #2 (0xc4c4...f0f9), Block #1 (0x34a5...b6f4)], height = 4    
+[2m2022-11-05T18:49:54.976254Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Trying to append Block #5 (0x53e9...2c2e) to Fork [Block #4 (0xa90f...a189), Block #3 (0x019f...d4b9), Block #2 (0xc4c4...f0f9), Block #1 (0x34a5...b6f4)], height = 4    
+[2m2022-11-05T18:49:54.976282Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Comparing Block #4 (0xa90f...a189) with Block #5 (0x53e9...2c2e)    
+[2m2022-11-05T18:49:54.976297Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Stacks Block #5 (0x53e9...2c2e) successfully appended to Fork [Block #5 (0x53e9...2c2e), Block #4 (0xa90f...a189), Block #3 (0x019f...d4b9), Block #2 (0xc4c4...f0f9), Block #1 (0x34a5...b6f4)], height = 5    
+[2m2022-11-05T18:49:54.976308Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Active fork: 0 - Fork [Block #5 (0x53e9...2c2e), Block #4 (0xa90f...a189), Block #3 (0x019f...d4b9), Block #2 (0xc4c4...f0f9), Block #1 (0x34a5...b6f4)], height = 5 / 107    
+[2m2022-11-05T18:49:54.976317Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Active fork selected as canonical: 0    
+[2m2022-11-05T18:49:54.976339Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m No block to confirm    
+[2m2022-11-05T18:49:54.976373Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:49:54.976542Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:49:54.976723Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling PropagateStacksChainEvent command    
+[2m2022-11-05T18:49:54.979868Z[0m [32m INFO[0m [2mstacks_network::ui::app[0m[2m:[0m Stacks Block #5 anchored in Bitcoin block #107 includes 1 transactions
+[2m2022-11-05T18:49:55.083456Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:49:55.083483Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:49:55.083540Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:49:55.087742Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:49:55.087778Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:49:55.090702Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:49:55.090718Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:49:55.090765Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:49:55.096062Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:49:55.096111Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:49:55.100951Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:49:55.100967Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:49:55.100991Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:49:55.101097Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling NotifyBitcoinTransactionProxied command    
+[2m2022-11-05T18:49:55.108591Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:49:55.108627Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:51:25.083813Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/new_burn_block[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:51:25.083884Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_new_bitcoin_block[0m[36m)[0m [32mPOST[0m [34m/new_burn_block[0m [33mapplication/json[0m    
+[2m2022-11-05T18:51:25.083940Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /new_burn_block    
+[2m2022-11-05T18:51:25.088412Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Start processing Bitcoin Block #108 (0x40aa...6133)    
+[2m2022-11-05T18:51:25.088440Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Active fork 0: Fork [Block #107 (0x1077...9eba), Block #106 (0x5cde...ec13), Block #105 (0x1072...3fd3), Block #104 (0x6918...a667), Block #103 (0x353d...6c93), Block #102 (0x4d42...c35c)], height = 6    
+[2m2022-11-05T18:51:25.088463Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Trying to append Block #108 (0x40aa...6133) to Fork [Block #107 (0x1077...9eba), Block #106 (0x5cde...ec13), Block #105 (0x1072...3fd3), Block #104 (0x6918...a667), Block #103 (0x353d...6c93), Block #102 (0x4d42...c35c)], height = 6    
+[2m2022-11-05T18:51:25.088477Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Comparing Block #107 (0x1077...9eba) with Block #108 (0x40aa...6133)    
+[2m2022-11-05T18:51:25.088482Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Bitcoin Block #108 (0x40aa...6133) successfully appended to Fork [Block #108 (0x40aa...6133), Block #107 (0x1077...9eba), Block #106 (0x5cde...ec13), Block #105 (0x1072...3fd3), Block #104 (0x6918...a667), Block #103 (0x353d...6c93), Block #102 (0x4d42...c35c)], height = 7    
+[2m2022-11-05T18:51:25.088490Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Active fork: 0 - Fork [Block #108 (0x40aa...6133), Block #107 (0x1077...9eba), Block #106 (0x5cde...ec13), Block #105 (0x1072...3fd3), Block #104 (0x6918...a667), Block #103 (0x353d...6c93), Block #102 (0x4d42...c35c)], height = 7    
+[2m2022-11-05T18:51:25.088495Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Active fork selected as canonical: 0    
+[2m2022-11-05T18:51:25.088543Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:51:25.088578Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling PropagateBitcoinChainEvent command    
+[2m2022-11-05T18:51:25.088586Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:51:25.088590Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Evaluating 0 bitcoin chainhooks registered    
+[2m2022-11-05T18:51:25.088593Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m 0 bitcoin chainhooks positive evaluations    
+[2m2022-11-05T18:51:25.088596Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m 0 bitcoin chainhooks will be triggered    
+[2m2022-11-05T18:51:25.088605Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m 0 bitcoin chainhooks to deregister    
+[2m2022-11-05T18:51:25.452559Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/new_block[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:51:25.452600Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_new_stacks_block[0m[36m)[0m [32mPOST[0m [34m/new_block[0m [33mapplication/json[0m    
+[2m2022-11-05T18:51:25.453933Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /new_block    
+[2m2022-11-05T18:51:25.454044Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Start processing Stacks Block #6 (0xc825...d337)    
+[2m2022-11-05T18:51:25.454057Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Active fork 0: Fork [Block #5 (0x53e9...2c2e), Block #4 (0xa90f...a189), Block #3 (0x019f...d4b9), Block #2 (0xc4c4...f0f9), Block #1 (0x34a5...b6f4)], height = 5    
+[2m2022-11-05T18:51:25.454073Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Trying to append Block #6 (0xc825...d337) to Fork [Block #5 (0x53e9...2c2e), Block #4 (0xa90f...a189), Block #3 (0x019f...d4b9), Block #2 (0xc4c4...f0f9), Block #1 (0x34a5...b6f4)], height = 5    
+[2m2022-11-05T18:51:25.454083Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Comparing Block #5 (0x53e9...2c2e) with Block #6 (0xc825...d337)    
+[2m2022-11-05T18:51:25.454096Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Stacks Block #6 (0xc825...d337) successfully appended to Fork [Block #6 (0xc825...d337), Block #5 (0x53e9...2c2e), Block #4 (0xa90f...a189), Block #3 (0x019f...d4b9), Block #2 (0xc4c4...f0f9), Block #1 (0x34a5...b6f4)], height = 6    
+[2m2022-11-05T18:51:25.454108Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Active fork: 0 - Fork [Block #6 (0xc825...d337), Block #5 (0x53e9...2c2e), Block #4 (0xa90f...a189), Block #3 (0x019f...d4b9), Block #2 (0xc4c4...f0f9), Block #1 (0x34a5...b6f4)], height = 6 / 108    
+[2m2022-11-05T18:51:25.454117Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Active fork selected as canonical: 0    
+[2m2022-11-05T18:51:25.454133Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m No block to confirm    
+[2m2022-11-05T18:51:25.454169Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:51:25.454209Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:51:25.454565Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling PropagateStacksChainEvent command    
+[2m2022-11-05T18:51:25.458287Z[0m [32m INFO[0m [2mstacks_network::ui::app[0m[2m:[0m Stacks Block #6 anchored in Bitcoin block #108 includes 1 transactions
+[2m2022-11-05T18:51:28.527534Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:51:28.527572Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:51:28.527617Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:51:28.531855Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:51:28.531888Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:51:28.534401Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:51:28.534413Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:51:28.534434Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:51:28.540220Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:51:28.540300Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:51:28.545273Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:51:28.545298Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:51:28.545331Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:51:28.545482Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling NotifyBitcoinTransactionProxied command    
+[2m2022-11-05T18:51:28.553744Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:51:28.553779Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:52:54.883470Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/new_burn_block[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:52:54.883556Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_new_bitcoin_block[0m[36m)[0m [32mPOST[0m [34m/new_burn_block[0m [33mapplication/json[0m    
+[2m2022-11-05T18:52:54.883618Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /new_burn_block    
+[2m2022-11-05T18:52:54.888075Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Start processing Bitcoin Block #109 (0x10d5...f713)    
+[2m2022-11-05T18:52:54.888108Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Active fork 0: Fork [Block #108 (0x40aa...6133), Block #107 (0x1077...9eba), Block #106 (0x5cde...ec13), Block #105 (0x1072...3fd3), Block #104 (0x6918...a667), Block #103 (0x353d...6c93)], height = 6    
+[2m2022-11-05T18:52:54.888133Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Trying to append Block #109 (0x10d5...f713) to Fork [Block #108 (0x40aa...6133), Block #107 (0x1077...9eba), Block #106 (0x5cde...ec13), Block #105 (0x1072...3fd3), Block #104 (0x6918...a667), Block #103 (0x353d...6c93)], height = 6    
+[2m2022-11-05T18:52:54.888139Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Comparing Block #108 (0x40aa...6133) with Block #109 (0x10d5...f713)    
+[2m2022-11-05T18:52:54.888144Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Bitcoin Block #109 (0x10d5...f713) successfully appended to Fork [Block #109 (0x10d5...f713), Block #108 (0x40aa...6133), Block #107 (0x1077...9eba), Block #106 (0x5cde...ec13), Block #105 (0x1072...3fd3), Block #104 (0x6918...a667), Block #103 (0x353d...6c93)], height = 7    
+[2m2022-11-05T18:52:54.888151Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Active fork: 0 - Fork [Block #109 (0x10d5...f713), Block #108 (0x40aa...6133), Block #107 (0x1077...9eba), Block #106 (0x5cde...ec13), Block #105 (0x1072...3fd3), Block #104 (0x6918...a667), Block #103 (0x353d...6c93)], height = 7    
+[2m2022-11-05T18:52:54.888240Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::bitcoin::blocks_pool[0m[2m:[0m Active fork selected as canonical: 0    
+[2m2022-11-05T18:52:54.888308Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:52:54.888350Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:52:54.888605Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling PropagateBitcoinChainEvent command    
+[2m2022-11-05T18:52:54.888644Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Evaluating 0 bitcoin chainhooks registered    
+[2m2022-11-05T18:52:54.888647Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m 0 bitcoin chainhooks positive evaluations    
+[2m2022-11-05T18:52:54.888651Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m 0 bitcoin chainhooks will be triggered    
+[2m2022-11-05T18:52:54.888670Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m 0 bitcoin chainhooks to deregister    
+[2m2022-11-05T18:52:55.256554Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/new_block[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:52:55.256641Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_new_stacks_block[0m[36m)[0m [32mPOST[0m [34m/new_block[0m [33mapplication/json[0m    
+[2m2022-11-05T18:52:55.256746Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /new_block    
+[2m2022-11-05T18:52:55.257054Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Start processing Stacks Block #7 (0x6815...4071)    
+[2m2022-11-05T18:52:55.257065Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Active fork 0: Fork [Block #6 (0xc825...d337), Block #5 (0x53e9...2c2e), Block #4 (0xa90f...a189), Block #3 (0x019f...d4b9), Block #2 (0xc4c4...f0f9), Block #1 (0x34a5...b6f4)], height = 6    
+[2m2022-11-05T18:52:55.257090Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Trying to append Block #7 (0x6815...4071) to Fork [Block #6 (0xc825...d337), Block #5 (0x53e9...2c2e), Block #4 (0xa90f...a189), Block #3 (0x019f...d4b9), Block #2 (0xc4c4...f0f9), Block #1 (0x34a5...b6f4)], height = 6    
+[2m2022-11-05T18:52:55.257150Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer[0m[2m:[0m Comparing Block #6 (0xc825...d337) with Block #7 (0x6815...4071)    
+[2m2022-11-05T18:52:55.257200Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Stacks Block #7 (0x6815...4071) successfully appended to Fork [Block #7 (0x6815...4071), Block #6 (0xc825...d337), Block #5 (0x53e9...2c2e), Block #4 (0xa90f...a189), Block #3 (0x019f...d4b9), Block #2 (0xc4c4...f0f9), Block #1 (0x34a5...b6f4)], height = 7    
+[2m2022-11-05T18:52:55.257207Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Active fork: 0 - Fork [Block #7 (0x6815...4071), Block #6 (0xc825...d337), Block #5 (0x53e9...2c2e), Block #4 (0xa90f...a189), Block #3 (0x019f...d4b9), Block #2 (0xc4c4...f0f9), Block #1 (0x34a5...b6f4)], height = 7 / 109    
+[2m2022-11-05T18:52:55.257212Z[0m [32m INFO[0m [2mchainhook_event_observer::indexer::stacks::blocks_pool[0m[2m:[0m Active fork selected as canonical: 0    
+[2m2022-11-05T18:52:55.257270Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:52:55.257296Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:52:55.257637Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling PropagateStacksChainEvent command    
+[2m2022-11-05T18:52:55.260273Z[0m [32m INFO[0m [2mstacks_network::ui::app[0m[2m:[0m Stacks Block #7 anchored in Bitcoin block #109 includes 1 transactions
+[2m2022-11-05T18:52:57.242991Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:52:57.243021Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:52:57.243063Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:52:57.247472Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:52:57.247511Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:52:57.249901Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:52:57.249917Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:52:57.249958Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:52:57.255888Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:52:57.255922Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:52:57.260620Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m [32mPOST[0m [34m/[0m [33mapplication[0m[33m/[0m[33mjson[0m:    
+[2m2022-11-05T18:52:57.260646Z[0m [32m INFO[0m [2m_[0m[2m:[0m Matched: [36m([0m[37mhandle_bitcoin_rpc_call[0m[36m)[0m [32mPOST[0m [34m/[0m [33mapplication/json[0m    
+[2m2022-11-05T18:52:57.260681Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m POST /    
+[2m2022-11-05T18:52:57.260793Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling NotifyBitcoinTransactionProxied command    
+[2m2022-11-05T18:52:57.268980Z[0m [32m INFO[0m [2m_[0m[2m:[0m [1;49;39mOutcome:[0m [49;32mSuccess[0m    
+[2m2022-11-05T18:52:57.269025Z[0m [32m INFO[0m [2m_[0m[2m:[0m [32mResponse succeeded.[0m    
+[2m2022-11-05T18:57:44.178682Z[0m [33m WARN[0m [2mstacks_network::ui::app[0m[2m:[0m Ctrl+C received, initiating termination sequence.
+[2m2022-11-05T18:57:44.178856Z[0m [32m INFO[0m [2mchainhook_event_observer::observer[0m[2m:[0m Handling Termination command    
+[2m2022-11-05T18:58:07.684629Z[0m [33m WARN[0m [2mrocket::server[0m[2m:[0m Received SIGINT. Requesting shutdown.    
+[2m2022-11-05T18:58:07.684630Z[0m [33m WARN[0m [2mrocket::server[0m[2m:[0m Received SIGINT. Requesting shutdown.    
+[2m2022-11-05T18:58:07.684693Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m Shutdown requested. Waiting for pending I/O...    
+[2m2022-11-05T18:58:07.684724Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m Shutdown requested. Waiting for pending I/O...    
+[2m2022-11-05T18:58:07.684762Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m Graceful shutdown completed successfully.    
+[2m2022-11-05T18:58:07.684791Z[0m [32m INFO[0m [2mrocket::server[0m[2m:[0m Graceful shutdown completed successfully.    
